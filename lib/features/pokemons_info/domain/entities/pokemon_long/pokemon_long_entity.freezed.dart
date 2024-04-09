@@ -14,6 +14,10 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
+PokemonLongEntity _$PokemonLongEntityFromJson(Map<String, dynamic> json) {
+  return _PokemonLongEntity.fromJson(json);
+}
+
 /// @nodoc
 mixin _$PokemonLongEntity {
   String get id => throw _privateConstructorUsedError;
@@ -27,7 +31,7 @@ mixin _$PokemonLongEntity {
 }
 
 /// @nodoc
-@JsonSerializable(createFactory: false)
+@JsonSerializable()
 class _$PokemonLongEntityImpl implements _PokemonLongEntity {
   const _$PokemonLongEntityImpl(
       {required this.id,
@@ -37,6 +41,9 @@ class _$PokemonLongEntityImpl implements _PokemonLongEntity {
       required final List<String> types,
       required this.frontImageUrl})
       : _types = types;
+
+  factory _$PokemonLongEntityImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PokemonLongEntityImplFromJson(json);
 
   @override
   final String id;
@@ -97,6 +104,9 @@ abstract class _PokemonLongEntity implements PokemonLongEntity {
       required final String name,
       required final List<String> types,
       required final String frontImageUrl}) = _$PokemonLongEntityImpl;
+
+  factory _PokemonLongEntity.fromJson(Map<String, dynamic> json) =
+      _$PokemonLongEntityImpl.fromJson;
 
   @override
   String get id;
