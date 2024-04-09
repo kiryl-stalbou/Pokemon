@@ -22,7 +22,7 @@ class PokemonDetailsScreen extends StatelessWidget {
             builder: (_, state) => switch (state) {
               PokemonDetailsLoading() => const PokemonDetailsLoadingScreen(),
               PokemonDetailsFailure() => const PokemonDetailsFailureScreen(),
-              PokemonDetailsSuccess(:final long, :final short) => PokemonDetailsSuccessScreen(long, short),
+              PokemonDetailsSuccess(:final pokemon) => PokemonDetailsSuccessScreen(pokemon),
             },
           ),
         ),

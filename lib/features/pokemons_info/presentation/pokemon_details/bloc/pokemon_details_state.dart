@@ -1,5 +1,4 @@
 import '../../../domain/entities/pokemon_long/pokemon_long_entity.dart';
-import '../../../domain/entities/pokemon_short/pokemon_short_entity.dart';
 
 sealed class PokemonDetailsState {
   const PokemonDetailsState();
@@ -14,8 +13,7 @@ final class PokemonDetailsFailure extends PokemonDetailsState {
 }
 
 final class PokemonDetailsSuccess extends PokemonDetailsState {
-  const PokemonDetailsSuccess(this.long, this.short);
+  const PokemonDetailsSuccess(this.pokemon);
 
-  final PokemonLongEntity long;
-  final PokemonShortEntity short;
+  final PokemonLongEntity pokemon;
 }
