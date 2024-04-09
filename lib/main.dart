@@ -4,13 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 import 'app.dart';
+import 'core/di/locator.dart';
 
 // dart run build_runner build --delete-conflicting-outputs
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   _setupGlobalErrorHandler();
+
+  await configureDependencies();
 
   runApp(const App());
 }
