@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../domain/entities/pokemon_long/pokemon_long_entity.dart';
@@ -16,10 +17,10 @@ class PokemonDetailsSuccessScreen extends StatelessWidget {
         //
         AspectRatio(
           aspectRatio: 1,
-          child: Image.network(
+          child: CachedNetworkImage(
             fit: BoxFit.fill,
-            pokemon.frontImageUrl,
-            filterQuality: FilterQuality.high,
+            imageUrl: pokemon.frontImageUrl,
+            errorWidget: (_, __, ___) => const Icon(Icons.error, size: 60),
           ),
         ),
 
