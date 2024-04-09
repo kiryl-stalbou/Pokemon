@@ -8,21 +8,21 @@ import '../datasources/local/pokemons_info_local_datasource.dart';
 import '../datasources/remote/pokemons_info_remote_datasource.dart';
 
 final class PokemonsInfoRepositoryImpl implements PokemonsInfoRepository {
-  const PokemonsInfoRepositoryImpl(this.remote, this.local);
+  const PokemonsInfoRepositoryImpl(this._remote, this._local);
 
-  final PokemonsInfoRemoteDataSource remote;
-  final PokemonsInfoLocalDataSource local;
+  final PokemonsInfoRemoteDataSource _remote;
+  final PokemonsInfoLocalDataSource _local;
 
   @override
   Future<ApiResponse<PokemonLongEntity>> readPokemonLong(PokemonLongParams params) async {
-    final localResponse = await local.readPokemonsLong(params);
+    final localResponse = await _local.readPokemonsLong(params);
 
     if (localResponse is ApiSuccess) return localResponse;
 
-    final remoteResponse = await remote.readPokemonLong(params);
+    final remoteResponse = await _remote.readPokemonLong(params);
 
     if (remoteResponse is ApiSuccess) {
-      await local.writePokemonLong(remoteResponse.data);
+      await _local.writePokemonLong(remoteResponse.data);
 
       return remoteResponse;
     }
@@ -32,14 +32,14 @@ final class PokemonsInfoRepositoryImpl implements PokemonsInfoRepository {
 
   @override
   Future<ApiResponse<List<PokemonShortEntity>>> readPokemonsShort(PokemonsShortParams params) async {
-    final localResponse = await local.readPokemonsShort(params);
+    final localResponse = await _local.readPokemonsShort(params);
 
     if (localResponse is ApiSuccess) return localResponse;
 
-    final remoteResponse = await remote.readPokemonsShort(params);
+    final remoteResponse = await _remote.readPokemonsShort(params);
 
     if (remoteResponse is ApiSuccess) {
-      await local.writePokemonsShort(remoteResponse.data);
+      await _local.writePokemonsShort(remoteResponse.data);
 
       return remoteResponse;
     }

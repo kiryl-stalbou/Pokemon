@@ -5,10 +5,10 @@ import '../entities/pokemon_short/pokemon_short_entity.dart';
 import '../repositories/pokemons_info_repository.dart';
 
 final class ReadPokemonsShortUseCase implements UseCase<List<PokemonShortEntity>, PokemonsShortParams> {
-  const ReadPokemonsShortUseCase(this.repository);
+  const ReadPokemonsShortUseCase(this._repository);
 
-  final PokemonsInfoRepository repository;
+  final PokemonsInfoRepository _repository;
 
   @override
-  Future<ApiResponse<List<PokemonShortEntity>>> invoke(PokemonsShortParams params) => repository.readPokemonsShort(params);
+  Future<ApiResponse<List<PokemonShortEntity>>> invoke(PokemonsShortParams params) => _repository.readPokemonsShort(params);
 }
