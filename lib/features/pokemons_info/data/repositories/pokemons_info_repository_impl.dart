@@ -15,7 +15,7 @@ final class PokemonsInfoRepositoryImpl implements PokemonsInfoRepository {
 
   @override
   Future<ApiResponse<PokemonLongEntity>> readPokemonLong(PokemonLongParams params) async {
-    final localResponse = await _local.readPokemonsLong(params);
+    final localResponse = await _local.readPokemonLong(params);
 
     if (localResponse.data != null) return localResponse;
 

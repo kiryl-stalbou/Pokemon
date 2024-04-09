@@ -7,9 +7,9 @@ import '../../../domain/entities/pokemon_short/pokemon_short_entity.dart';
 abstract interface class PokemonsInfoLocalDataSource {
   Future<ApiResponse<List<PokemonShortEntity>>> readPokemonsShort(PokemonsShortParams params);
 
-  Future<ApiResponse<PokemonLongEntity>> readPokemonsLong(PokemonLongParams params);
+  Future<ApiResponse<PokemonLongEntity>> readPokemonLong(PokemonLongParams params);
 
-  Future<ApiResponse<void>> writePokemonsShort(List<PokemonShortEntity> pokemonsShort);
+  Future<ApiResponse<void>> writePokemonsShort(List<PokemonShortEntity> shorts);
 
-  Future<ApiResponse<void>> writePokemonLong(PokemonLongEntity pokemonLong);
+  Future<ApiResponse<void>> writePokemonLong(PokemonLongEntity long);
 }
