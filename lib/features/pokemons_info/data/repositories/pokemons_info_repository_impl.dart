@@ -17,12 +17,12 @@ final class PokemonsInfoRepositoryImpl implements PokemonsInfoRepository {
   Future<ApiResponse<PokemonLongEntity>> readPokemonLong(PokemonLongParams params) async {
     final localResponse = await _local.readPokemonsLong(params);
 
-    if (localResponse is ApiSuccess) return localResponse;
+    if (localResponse.data != null) return localResponse;
 
     final remoteResponse = await _remote.readPokemonLong(params);
 
-    if (remoteResponse is ApiSuccess) {
-      await _local.writePokemonLong(remoteResponse.data);
+    if (remoteResponse.data != null) {
+      await _local.writePokemonLong(remoteResponse.data!);
 
       return remoteResponse;
     }
@@ -34,12 +34,12 @@ final class PokemonsInfoRepositoryImpl implements PokemonsInfoRepository {
   Future<ApiResponse<List<PokemonShortEntity>>> readPokemonsShort(PokemonsShortParams params) async {
     final localResponse = await _local.readPokemonsShort(params);
 
-    if (localResponse is ApiSuccess) return localResponse;
+    if (localResponse.data != null) return localResponse;
 
     final remoteResponse = await _remote.readPokemonsShort(params);
 
-    if (remoteResponse is ApiSuccess) {
-      await _local.writePokemonsShort(remoteResponse.data);
+    if (remoteResponse.data != null) {
+      await _local.writePokemonsShort(remoteResponse.data!);
 
       return remoteResponse;
     }
