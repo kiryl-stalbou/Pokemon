@@ -13,6 +13,7 @@ _$PokemonLongEntityImpl _$$PokemonLongEntityImplFromJson(
       weight: json['weight'] as num,
       height: json['height'] as num,
       types: (json['types'] as List<dynamic>).map((e) => e as String).toList(),
+      frontImageUrl: json['frontImageUrl'] as String,
     );
 
 Map<String, dynamic> _$$PokemonLongEntityImplToJson(
@@ -22,4 +23,5 @@ Map<String, dynamic> _$$PokemonLongEntityImplToJson(
       'weight': instance.weight,
       'height': instance.height,
       'types': instance.types,
+      'frontImageUrl': instance.frontImageUrl,
     };

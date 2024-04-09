@@ -24,6 +24,7 @@ mixin _$PokemonLongEntity {
   num get weight => throw _privateConstructorUsedError;
   num get height => throw _privateConstructorUsedError;
   List<String> get types => throw _privateConstructorUsedError;
+  String get frontImageUrl => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
@@ -35,7 +36,8 @@ class _$PokemonLongEntityImpl implements _PokemonLongEntity {
       {required this.id,
       required this.weight,
       required this.height,
-      required final List<String> types})
+      required final List<String> types,
+      required this.frontImageUrl})
       : _types = types;
 
   factory _$PokemonLongEntityImpl.fromJson(Map<String, dynamic> json) =>
@@ -56,8 +58,11 @@ class _$PokemonLongEntityImpl implements _PokemonLongEntity {
   }
 
   @override
+  final String frontImageUrl;
+
+  @override
   String toString() {
-    return 'PokemonLongEntity(id: $id, weight: $weight, height: $height, types: $types)';
+    return 'PokemonLongEntity(id: $id, weight: $weight, height: $height, types: $types, frontImageUrl: $frontImageUrl)';
   }
 
   @override
@@ -68,13 +73,15 @@ class _$PokemonLongEntityImpl implements _PokemonLongEntity {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.weight, weight) || other.weight == weight) &&
             (identical(other.height, height) || other.height == height) &&
-            const DeepCollectionEquality().equals(other._types, _types));
+            const DeepCollectionEquality().equals(other._types, _types) &&
+            (identical(other.frontImageUrl, frontImageUrl) ||
+                other.frontImageUrl == frontImageUrl));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, weight, height,
-      const DeepCollectionEquality().hash(_types));
+      const DeepCollectionEquality().hash(_types), frontImageUrl);
 
   @override
   Map<String, dynamic> toJson() {
@@ -89,7 +96,8 @@ abstract class _PokemonLongEntity implements PokemonLongEntity {
       {required final String id,
       required final num weight,
       required final num height,
-      required final List<String> types}) = _$PokemonLongEntityImpl;
+      required final List<String> types,
+      required final String frontImageUrl}) = _$PokemonLongEntityImpl;
 
   factory _PokemonLongEntity.fromJson(Map<String, dynamic> json) =
       _$PokemonLongEntityImpl.fromJson;
@@ -102,4 +110,6 @@ abstract class _PokemonLongEntity implements PokemonLongEntity {
   num get height;
   @override
   List<String> get types;
+  @override
+  String get frontImageUrl;
 }

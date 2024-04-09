@@ -12,6 +12,7 @@ class PokemonLongEntity with _$PokemonLongEntity {
     required num weight,
     required num height,
     required List<String> types,
+    required String frontImageUrl,
   }) = _PokemonLongEntity;
 
   factory PokemonLongEntity.fromJson(Map<String, Object?> json) => _$PokemonLongEntityFromJson(json);
