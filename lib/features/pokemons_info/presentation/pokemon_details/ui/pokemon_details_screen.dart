@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../core/di/locator.dart';
+import '../../../domain/usecases/read_pokemon_long_usecase.dart';
 import '../bloc/pokemon_details_bloc.dart';
 import '../bloc/pokemon_details_event.dart';
 import '../bloc/pokemon_details_state.dart';
@@ -15,7 +17,7 @@ class PokemonDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => BlocProvider(
-        create: (_) => PokemonDetailsBloc(id)..add(const PokemonDetailsFetch()),
+        create: (_) => PokemonDetailsBloc(id, locator<ReadPokemonLongUseCase>())..add(const PokemonDetailsFetch()),
         child: Scaffold(
           appBar: AppBar(title: Text('Pokemon: $id')),
           body: BlocBuilder<PokemonDetailsBloc, PokemonDetailsState>(
