@@ -14,15 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-PokemonLongEntity _$PokemonLongEntityFromJson(Map<String, dynamic> json) {
-  return _PokemonLongEntity.fromJson(json);
-}
-
 /// @nodoc
 mixin _$PokemonLongEntity {
   String get id => throw _privateConstructorUsedError;
   num get weight => throw _privateConstructorUsedError;
   num get height => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
   List<String> get types => throw _privateConstructorUsedError;
   String get frontImageUrl => throw _privateConstructorUsedError;
 
@@ -30,18 +27,16 @@ mixin _$PokemonLongEntity {
 }
 
 /// @nodoc
-@JsonSerializable()
+@JsonSerializable(createFactory: false)
 class _$PokemonLongEntityImpl implements _PokemonLongEntity {
   const _$PokemonLongEntityImpl(
       {required this.id,
       required this.weight,
       required this.height,
+      required this.name,
       required final List<String> types,
       required this.frontImageUrl})
       : _types = types;
-
-  factory _$PokemonLongEntityImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PokemonLongEntityImplFromJson(json);
 
   @override
   final String id;
@@ -49,6 +44,8 @@ class _$PokemonLongEntityImpl implements _PokemonLongEntity {
   final num weight;
   @override
   final num height;
+  @override
+  final String name;
   final List<String> _types;
   @override
   List<String> get types {
@@ -62,7 +59,7 @@ class _$PokemonLongEntityImpl implements _PokemonLongEntity {
 
   @override
   String toString() {
-    return 'PokemonLongEntity(id: $id, weight: $weight, height: $height, types: $types, frontImageUrl: $frontImageUrl)';
+    return 'PokemonLongEntity(id: $id, weight: $weight, height: $height, name: $name, types: $types, frontImageUrl: $frontImageUrl)';
   }
 
   @override
@@ -73,6 +70,7 @@ class _$PokemonLongEntityImpl implements _PokemonLongEntity {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.weight, weight) || other.weight == weight) &&
             (identical(other.height, height) || other.height == height) &&
+            (identical(other.name, name) || other.name == name) &&
             const DeepCollectionEquality().equals(other._types, _types) &&
             (identical(other.frontImageUrl, frontImageUrl) ||
                 other.frontImageUrl == frontImageUrl));
@@ -80,7 +78,7 @@ class _$PokemonLongEntityImpl implements _PokemonLongEntity {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, weight, height,
+  int get hashCode => Object.hash(runtimeType, id, weight, height, name,
       const DeepCollectionEquality().hash(_types), frontImageUrl);
 
   @override
@@ -96,11 +94,9 @@ abstract class _PokemonLongEntity implements PokemonLongEntity {
       {required final String id,
       required final num weight,
       required final num height,
+      required final String name,
       required final List<String> types,
       required final String frontImageUrl}) = _$PokemonLongEntityImpl;
-
-  factory _PokemonLongEntity.fromJson(Map<String, dynamic> json) =
-      _$PokemonLongEntityImpl.fromJson;
 
   @override
   String get id;
@@ -108,6 +104,8 @@ abstract class _PokemonLongEntity implements PokemonLongEntity {
   num get weight;
   @override
   num get height;
+  @override
+  String get name;
   @override
   List<String> get types;
   @override
